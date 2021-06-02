@@ -9,22 +9,15 @@ import static org.junit.Assert.*;
 
 public class JobTest {
 
-//    @Override
-//    public String toString() {
-//        return "JobTest{" +
-//                "testJob1=" + testJob1 +
-//                '}';
-//    }
     public Job testJob1;
+    public Job testJob2;
     @Before
     public void createTestJob() {
         testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-
+        testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
-
-    public Job testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
-            new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     @Test
     public void testSettingJobId(){
