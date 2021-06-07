@@ -21,10 +21,10 @@ public class Job {
         id = nextId;
         nextId++;
     }
+
     public int getId() {
         return id;
     }
-
 
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -95,16 +95,22 @@ public class Job {
         return Objects.hash(getId());
     }
 
-
     @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
+        if (name.equals("")){
+            this.name = "Data not available";
+        }
+//        if (location.equals("")){
+//            this.location = "Data not available";
+//        }
+
+        return '\''+ "Job{" +
+                "ID: " + id + '\'' +
+                "Name: " + name + '\'' +
+                "Employer: " + employer + '\'' +
+                "Location: " + location + '\'' +
+                "Position Type: " + positionType + '\'' +
+                "Core Competency: " + coreCompetency + '\'' +
                 '}';
     }
 }
