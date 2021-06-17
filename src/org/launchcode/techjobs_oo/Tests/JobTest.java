@@ -9,9 +9,7 @@ import static org.junit.Assert.*;
 
 public class JobTest {
 
-    public Job testJob1;
-    public Job testJob2;
-    public Job testJob3;
+    private Job testJob1, testJob2, testJob3;
 
     @Before
     public void createTestJob() {
@@ -50,28 +48,41 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringMethod(){
-//        Test for line break at beginning and end of job printout
-//        assertEquals(testJob1.toString().charAt(0,0), "\'");
-        assertTrue(testJob1.toString().contains("ID: " + testJob1.getId()));
-        assertTrue(testJob1.toString().contains("Name: Product tester"));
-        assertTrue(testJob1.toString().contains("Location: Desert"));
-        assertTrue(testJob1.toString().contains("Employer: ACME"));
-        assertTrue(testJob1.toString().contains("Position Type: Quality control"));
-        assertTrue(testJob1.toString().contains("Core Competency: Persistence"));
-        assertEquals(testJob3.getName(), "");
-        assertTrue(testJob3.toString().contains("Name: Data not available"));
-        assertEquals(testJob3.getLocation(), "");
-        assertTrue(testJob3.toString().contains("Location: Data not available"));
-//        assertEquals(testJob3.getName(), "");
-//        assertTrue(testJob3.toString().contains("Name: Data not available"));
-//        assertEquals(testJob3.getName(), "");
-//        assertTrue(testJob3.toString().contains("Name: Data not available"));
-//        assertEquals(testJob3.getName(), "");
-//        assertTrue(testJob3.toString().contains("Name: Data not available"));
+    public void testToStringStartsAndEndsWithNewLine(){
+        assertEquals(testJob3.toString().substring(0,1), "\n");
+        assertEquals(testJob3.toString().substring(testJob3.toString().length()-1), "\n");
 
+        // char firstChar = testJobFour.toString().charAt(0);
+        // char lastChar = testJobFour.toString().charAt(testJobFour.toString().length() - 1);
 
+        // assertEquals(Character.toString(firstChar), "\n");
+        // assertEquals(Character.toString(lastChar), "\n");
+    }
 
+    @Test
+    public void testToStringContainsCorrectLabelAndData(){
+        String output = "\n" +
+                "ID: " + testJob1.getId() + "\n" +
+                "Name: " + testJob1.getName() + "\n" +
+                "Employer: " + testJob1.getEmployer() + "\n" +
+                "Location: " + testJob1.getLocation() + "\n" +
+                "Position Type: " + testJob1.getPositionType() + "\n" +
+                "Core Competency: " + testJob1.getCoreCompetency() + "\n";
+
+        assertEquals(output, testJob1.toString());
+    }
+
+    @Test
+    public void testToStringIfFieldEmptyReturnDataNotAvailable(){
+        String output = "\n" +
+                "ID: " + testJob3.getId() + "\n" +
+                "Name: Data not available" + "\n" +
+                "Employer: Data not available" + "\n" +
+                "Location: Data not available" + "\n" +
+                "Position Type: Data not available" + "\n" +
+                "Core Competency: Data not available" + "\n";
+
+        assertEquals(output, testJob3.toString());
     }
 
 

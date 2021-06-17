@@ -12,6 +12,7 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+    public String newLine = System.getProperty("line.separator");
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -97,20 +98,28 @@ public class Job {
 
     @Override
     public String toString() {
-        if (name.equals("")){
-            this.name = "Data not available";
+        if (name.equals("") || name == null){
+            name = "Data not available";
         }
-//        if (location.equals("")){
-//            this.location = "Data not available";
-//        }
+        if (employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not available");
+        }
+        if (location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+        }
 
-        return '\''+ "Job{" +
-                "ID: " + id + '\'' +
-                "Name: " + name + '\'' +
-                "Employer: " + employer + '\'' +
-                "Location: " + location + '\'' +
-                "Position Type: " + positionType + '\'' +
-                "Core Competency: " + coreCompetency + '\'' +
-                '}';
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
     }
 }
