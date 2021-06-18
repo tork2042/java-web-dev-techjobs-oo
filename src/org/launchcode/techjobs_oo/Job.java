@@ -12,7 +12,6 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
-    public String newLine = System.getProperty("line.separator");
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -23,9 +22,6 @@ public class Job {
         nextId++;
     }
 
-    public int getId() {
-        return id;
-    }
 
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -39,6 +35,10 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

@@ -38,13 +38,7 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality(){
-        assertFalse(testJob1.getId()==testJob2.getId());
-        assertTrue(testJob1.getName().equals(testJob2.getName()));
-        assertTrue(testJob1.getEmployer().getValue()==testJob2.getEmployer().getValue());
-        assertTrue(testJob1.getLocation().getValue()==testJob2.getLocation().getValue());
-        assertTrue(testJob1.getPositionType().getValue()==testJob2.getPositionType().getValue());
-        assertTrue(testJob1.getCoreCompetency().getValue()==testJob2.getCoreCompetency().getValue());
-
+        assertFalse(testJob1.equals(testJob2));
     }
 
     @Test
